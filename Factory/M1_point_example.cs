@@ -12,7 +12,7 @@ public class Point
   
   enum SomeEnum {...}
   
-  //Another mitigation 
+  //Another mitigation, normally requires a bit comments before the constructor for explanation on the generic arguments
   public Point(double a, double b, SomeEnum enumVal) {
     switch (enumVal) {
       case xxx
@@ -22,5 +22,39 @@ public class Point
     }
   }
   
+  //Using inheritance is also an option here but it is not as simpler as using factory way
+}
+
+public class WithFactory
+{
+  public class Point 
+  {
+    private double x, y;
+    
+    //Resharper can automatically create factory method for you if you have one installed
+    
+    //Factory method
+    public static Point NewcartesianPoint(double x, double y)
+    {
+      return new Point(x, y);
+    }
+    
+    public static Point NewPolarPoint(double rho, double theta)
+    {
+      return new Point(rho * Math.Cos(theta), rho * Math.Sin(theta));
+    }
+    
+    //Here the unextendable constructor is made of private
+    private Point(double x, double y)
+    {
+      this.x = x;
+      this.y = y;
+    }
+  }
   
+  Main ()
+  {
+    var polarPoint = new Point.NewPolarPoint(1, 2);
+    var anotherPoint = new Point.NewcartesianPoint(1, 2);
+  }
 }
