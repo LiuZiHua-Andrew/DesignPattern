@@ -10,5 +10,17 @@ public class Point
     this.y = y;
   }
   
+  enum SomeEnum {...}
+  
+  //Another mitigation 
+  public Point(double a, double b, SomeEnum enumVal) {
+    switch (enumVal) {
+      case xxx
+       //assign a and b to fields with some operation
+      case xxx
+       //assign a and b to different fields with some operation
+    }
+  }
+  
   
 }
