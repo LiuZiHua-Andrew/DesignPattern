@@ -19,3 +19,7 @@
 > Factory
 >
 > A component responsible solely for the wholesale (**not piecewise**) creation of objects.
+
+
+## Note 
+1. Normally when you created a factory method, you want to hide the standard constructor from the end user to implicitly ask them use your factory method.
