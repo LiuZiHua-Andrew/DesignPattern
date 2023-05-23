@@ -15,3 +15,7 @@
   1. A separate function (Factory Method)
   2. That may exist in a separate class (Factory)
   3. Can create hierarchy of factories with abstract factory (Abstract factorty)
+
+> Factory
+>
+> A component responsible solely for the wholesale (**not piecewise**) creation of objects.
