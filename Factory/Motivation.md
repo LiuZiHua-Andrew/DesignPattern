@@ -1,5 +1,5 @@
-## 1) Object creation logic becomes too convoluted.
-## 2) Constructor is not descriptive
+## Object creation logic becomes too convoluted.
+## Constructor is not descriptive
   1. Name mandated by name of containing type
   2. Cannot overload with same sets of arguments with different names
   ```
@@ -11,3 +11,7 @@
   ```
   Constructor(int x, int y = 0, string z = "optional", char a = 'a') { }
   ```
+## Object creation (non-piecewise, unlike Builder) can be outsourced to
+  1. A separate function (Factory Method)
+  2. That may exist in a separate class (Factory)
+  3. Can create hierarchy of factories with abstract factory (Abstract factorty)
