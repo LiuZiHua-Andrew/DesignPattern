@@ -62,4 +62,7 @@ public class Point
   {
     var polarPoint = PointFactory.NewPolarPoint(1, 2);
     var anotherPoint = PointFactory.NewcartesianPoint(1, 2);
+    
+    //new way
+    var point = Point.Factory.NewPolarPoint(1, 2);
   }
