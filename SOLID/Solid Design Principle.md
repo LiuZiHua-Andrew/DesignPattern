@@ -9,6 +9,21 @@ An example could be Specification Pattern
 ```
 public class xxxSpecification : ISpecification<T>
 public class xxx2Specification: ISpecification<T>
+public class AndSpecification<T>: ISpecification<T>
+{
+  private ISpecification<T> first, second;
+  
+  public AndSpecification(ISpecification<T> first, ISpecification<T> second)
+  {
+    this.first = first;
+    this.second = second
+  }
+  
+  public bool IsSatisfied(T t)
+  {
+    return first.IsSatisfied() && second.IsSatisfied();
+  }
+}
 
 public interface IFilter<T>
 {
