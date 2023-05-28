@@ -79,6 +79,7 @@ namespace DotNetDesignPatternDemos.Creational.Prototype.Inheritance
 
     public void CopyTo(Employee target)
     {
+      //At here, we only need to call the base CopyTo instaed of duplicate the copy
       base.CopyTo(target);
       target.Salary = Salary;
     }
@@ -91,12 +92,19 @@ namespace DotNetDesignPatternDemos.Creational.Prototype.Inheritance
   
   public static class DeepCopyExtensions
   {
+    //Because in order to call interface default method
+    //it needs the caller to be the interface type
     public static T DeepCopy<T>(this IDeepCopyable<T> item) 
       where T : new()
     {
       return item.DeepCopy();
     }
 
+    /*
+    Because the Employee could be Person or Employee and needs
+    to specity the type when call DeepCopy
+    This is simply prevent the extra casting
+    */
     public static T DeepCopy<T>(this T person)
       where T : Person, new()
     {
