@@ -10,6 +10,7 @@ public class Person()
   
   public Person(Person personToCopy)
   {
-    //do copy here
+    //do copy here, for all reference type you need to have same copy constructor as Person
+    
   }
 }
