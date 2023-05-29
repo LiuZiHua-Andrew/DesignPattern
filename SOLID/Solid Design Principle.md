@@ -30,3 +30,15 @@ public interface IFilter<T>
   public IEnumerable<Product> Filter(IEnumerable<T>, ISpecification<T>)
 }
 ```
+
+## Liskov Substitution Principle
+You should be able to substitute a base type with a sub type.
+
+## Interface Segregation Principle
+Interface should not be too big so anyone who implements the interface will not implement functions that are not required for them.
+
+## Dependency Inversion
+High level parts of the system should not depend on low level parts of the system directly, instead, they should depends on some abstraction.
+
+
+
