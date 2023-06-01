@@ -1,6 +1,8 @@
 public class Person
 {
   public string Name;
+  
+  //Will be initialized by ChatRoom when join
   public ChatRoom Room;
   
   private List<string> chatLog = new List<string>();
