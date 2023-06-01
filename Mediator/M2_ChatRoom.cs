@@ -70,5 +70,14 @@ public class Demo
     
     room.Join(john);
     room.Join(jane);
+    
+    john.Say("hi");
+    jane.Say("oh, hey john");
+    
+    var simon = new Person("simon");
+    room.Join(simon);
+    simon.Say("hi everyone!");
+    
+    jane.PrivateMessage("simon", "glas you are here");
   }
 }
