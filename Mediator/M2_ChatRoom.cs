@@ -40,6 +40,9 @@ public class ChatRoom
   {
     string joinMsg = $"{p.Name} joins the chat";
     Broadcast("room", joinMsg);
+    
+    p.Room = this;
+    people.Add(p);
   }
   
   public void Broadcast(string source, string message)
