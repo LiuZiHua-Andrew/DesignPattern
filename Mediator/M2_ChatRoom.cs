@@ -1,3 +1,7 @@
+
+/*
+People does not need to be aware of another people, meaning that they don't need to have reference to one another
+*/
 public class Person
 {
   public string Name;
@@ -60,6 +64,7 @@ public class ChatRoom
   
   public void Message(string source, string destination, string message)
   {
+    //Even though people may drop out of the room, but because the null check, source can still send message just no one is ever going to be received
     people.FirstOrDefault(p => p.Name == destination)?.Receive(source, message);
   }
 }
