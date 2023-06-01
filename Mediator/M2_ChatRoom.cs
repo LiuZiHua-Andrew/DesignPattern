@@ -58,3 +58,17 @@ public class ChatRoom
     people.FirstOrDefault(p => p.Name == destination)?.Receive(source, message);
   }
 }
+
+public class Demo
+{
+  static void Main(string[] args)
+  {
+    var room = new ChatRoom();
+    
+    var john = new Person("John");
+    var jane = new Person("Jane");
+    
+    room.Join(john);
+    room.Join(jane);
+  }
+}
