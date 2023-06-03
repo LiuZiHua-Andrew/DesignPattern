@@ -16,6 +16,7 @@ All communication is via Mediator/IObservable here
 public class FootballPlayer : Actor
 {
   public string Name {get; set;}
+  public int GoalsScored {get; set;} = 0;
   
   public FootballPlayer(EventBroker broker, string name) : base(broker)
   {
@@ -36,10 +37,12 @@ public class FootballPlayer : Actor
   
   public void Score(int score)
   {
+    GoalsScored ++;
+    
     broker.Publish(new PlayerscoredEvent
     {
       Name = name,
-      goalsScored = score,
+      goalsScored = GoalsScored,
     });
   }
 }
