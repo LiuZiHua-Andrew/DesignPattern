@@ -11,9 +11,23 @@ public class Actor
 
 public class FootballPlayer : Actor
 {
-  public FootballPlayer(EventBroker broker) : base(broker)
+  public string Name {get; set;}
+  
+  public FootballPlayer(EventBroker broker, string name) : base(broker)
   {
+    Name = name;
     
+    broker.OfType<PlayerscoredEvent>()
+      .Where(ps => !ps.Name.Equals(name))
+      .Subscribe(
+        ps => WriteLine($"{name}: Nicely done, {ps.Name}! It's your {ps.GoalsScored}.")
+      );
+      
+    broker.OfType<PlayerSentOffEVent>()
+      .Where(ps => !ps.Name.Equals(name))
+      .Subscribe(
+        ps => WriteLine($"${name}: see you in the lockers, {ps.Name}");  
+      )
   }
 }
 
@@ -29,6 +43,14 @@ public class Footballcoatch : Actor
         WriteLine($"Coach: well done, {pe.Name}");
       }
     });
+    
+    broker.OfType<PlayerSentOffEVent>().Subscribe(pe =>
+    {
+      if(pe.Reason == 'violence')
+      {
+        WriteLine($"Coach: how could you, {pe.Name}.");
+      }
+    })
   }
 }
 
