@@ -97,6 +97,17 @@ static class Program
 {
   private static void Main()
   {
+    var cb = new ContainerBuilder();
+    cb.RegisterType<EventBroker>().SingleInstance();
+    cb.RegisterType<Footballcoatch>();
     
+    cb.Register((c, p) => new FootballPlayer(c.Resolve<EventBroker>(), p.Name<string>("name")));
+    
+    using(var c = cb.Build())
+    {
+      var coach = c.Resolve<Footballcoatch>();
+      var player1 = c.Resolve<FootballPlayer>(new NamedParameter("name", "John"));
+      var player2 = c.Resolve<FootballPlayer>(new NamedParameter("name", "Chris"));
+    }
   }
 }
