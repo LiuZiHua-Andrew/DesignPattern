@@ -36,7 +36,7 @@ public class FootballPlayer : Actor
   }
   
   //Becuase all of them have the broker reference, so defining what event to send and what postaction to do will be located in its own class
-  public void Score(int score)
+  public void Score()
   {
     GoalsScored ++;
     
