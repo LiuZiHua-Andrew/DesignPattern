@@ -33,6 +33,15 @@ public class FootballPlayer : Actor
         ps => WriteLine($"${name}: see you in the lockers, {ps.Name}");  
       )
   }
+  
+  public void Score(int score)
+  {
+    broker.Publish(new PlayerscoredEvent
+    {
+      Name = name,
+      goalsScored = score,
+    });
+  }
 }
 
 /*
@@ -110,6 +119,8 @@ static class Program
       var coach = c.Resolve<Footballcoatch>();
       var player1 = c.Resolve<FootballPlayer>(new NamedParameter("name", "John"));
       var player2 = c.Resolve<FootballPlayer>(new NamedParameter("name", "Chris"));
+      
+      player1.Score();
     }
   }
 }
