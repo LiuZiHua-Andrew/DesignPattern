@@ -42,7 +42,7 @@ public class FootballPlayer : Actor
     broker.Publish(new PlayerscoredEvent
     {
       Name = name,
-      goalsScored = GoalsScored,
+      GoalsScored = GoalsScored,
     });
   }
 }
