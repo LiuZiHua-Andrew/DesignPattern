@@ -9,6 +9,10 @@ public class Actor
   }
 }
 
+/*
+FootballPlayer has no dependency with other FootballPlayer and Footballcoatch,
+All communication is via Mediator/IObservable here
+*/
 public class FootballPlayer : Actor
 {
   public string Name {get; set;}
@@ -31,6 +35,10 @@ public class FootballPlayer : Actor
   }
 }
 
+/*
+Footballcoatch has no dependency with other FootballPlayer and Footballcoatch,
+All communication is via Mediator/IObservable here
+*/
 public class Footballcoatch : Actor
 {
   public Footballcoatch(EventBroker broker) : base(broker)
