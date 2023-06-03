@@ -45,6 +45,15 @@ public class FootballPlayer : Actor
       GoalsScored = GoalsScored,
     });
   }
+  
+  public void AssultReferee()
+  {
+    broker.Publish(new PlayerSentOffEVent
+    {
+      Name = name,
+      Reason = "violence"
+    });
+  }
 }
 
 /*
