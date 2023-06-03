@@ -134,6 +134,11 @@ static class Program
       var player2 = c.Resolve<FootballPlayer>(new NamedParameter("name", "Chris"));
       
       player1.Score();
+      player1.Score();
+      player1.Score();
+      
+      player1.AssultReferee();
+      player2.Score();
     }
   }
 }
