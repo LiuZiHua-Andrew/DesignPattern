@@ -101,6 +101,8 @@ static class Program
     cb.RegisterType<EventBroker>().SingleInstance();
     cb.RegisterType<Footballcoatch>();
     
+    //https://autofac.readthedocs.io/en/latest/register/registration.html#selection-of-an-implementation-by-parameter-value
+    //The concrete will be decided when name is provided, but the EventBroker has been fixed here
     cb.Register((c, p) => new FootballPlayer(c.Resolve<EventBroker>(), p.Name<string>("name")));
     
     using(var c = cb.Build())
