@@ -99,7 +99,7 @@ public class PlayerSentOffEVent : PlayerEvent
   public string Reason {get;set;}
 }
 
-//Mediator
+//Mediator, a small demo to setup event bus/event broker
 public class EventBroker : IObservable<PlayerEvent>
 {
   private Subject<PlayerEvent> subscriptions = new Subject<PlayerEvent>();
